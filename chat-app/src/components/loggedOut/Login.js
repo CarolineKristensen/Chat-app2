@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
+    Container,
     Form,
     InputGroup,
     Button
@@ -32,7 +33,8 @@ export default function Login({ setToken }) {
     }
 
     return (
-        <div>
+        <Container className="loggedOutDiv pb-4 px-3">
+            <h1>Log in</h1>
             <Form className="pt-4" onSubmit={handleSubmit}>
                 <Form.Group className="pb-3" controlId="formUsername">
                     <InputGroup>
@@ -59,7 +61,7 @@ export default function Login({ setToken }) {
                     </Button>
                 </div>
             </Form>
-        </div>
+        </Container>
     )
 }
 

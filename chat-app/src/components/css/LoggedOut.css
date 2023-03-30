@@ -1,4 +1,4 @@
-/* General LoggedOut styling */
+/* General LoggedOut styling 
 .loggedOutDiv {
     height: 100%;
     width: 550px;
@@ -8,15 +8,15 @@
     height: 50px;
     color: #7439db;
 }
+*/
 
 /* Button styling */
 .loggedOutButton {
-    border: none;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #7439db;
+    border: none !important;
+    background-color: white !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    color: #7439db !important;
 
     margin-top: 20px;
 
