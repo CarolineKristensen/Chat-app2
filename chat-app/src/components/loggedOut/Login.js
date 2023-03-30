@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import {
     Form,
     InputGroup,
@@ -6,7 +7,12 @@ import {
 } from "react-bootstrap";
 import "../css/LoggedOut.css";
 
-function Login() {
+
+
+export default function Login({ setToken }) {
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+ 
     return (
         <div>
             <Form className="pt-4">
@@ -15,7 +21,7 @@ function Login() {
                         <InputGroup.Text>
                             <img id="usernameIcon" src="../images/person-fill.svg" alt="Username icon" width="20px" />
                         </InputGroup.Text>
-                        <Form.Control type="text" placeholder="Username" required/>
+                        <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
                 <Form.Group className="pb-3" controlId="formPassword">
@@ -23,7 +29,7 @@ function Login() {
                         <InputGroup.Text>
                             <img id="passwordIcon" src="../images/key-fill.svg" alt="Password icon" width="20px" />
                         </InputGroup.Text>
-                        <Form.Control type="password" placeholder="Password" required/>
+                        <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
                 <p id="forgotPwd">
@@ -39,4 +45,6 @@ function Login() {
     )
 }
 
-export default Login;
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+}
