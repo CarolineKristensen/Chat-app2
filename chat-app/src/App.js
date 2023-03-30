@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
   BrowserRouter,
   Routes,
   Route 
   } from "react-router-dom";
 import Home from "./components/home/Home";
-import LoggedOut from "./components/loggedOut/LoggedOut";
+import Login from "./components/loggedOut/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/css/Common.css";
 
+function setToken(userToken) {
+  sessionStorage.setItem("token", JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem("token");
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
+
 function App() {
-  const [token, setToken] = useState();
+  const token = getToken();
 
   if (!token) {
     return <Login setToken={setToken} />
@@ -22,7 +32,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/loggedout" element={<LoggedOut />} /> 
         </Routes>
       </BrowserRouter>
     </div>
