@@ -22,9 +22,18 @@ export default function Login({ setToken }) {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
  
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+            username,
+            password
+        });
+        setToken(token);
+    }
+
     return (
         <div>
-            <Form className="pt-4">
+            <Form className="pt-4" onSubmit={handleSubmit}>
                 <Form.Group className="pb-3" controlId="formUsername">
                     <InputGroup>
                         <InputGroup.Text>
