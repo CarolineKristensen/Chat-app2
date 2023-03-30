@@ -4,10 +4,10 @@ import {
   Routes,
   Route 
   } from "react-router-dom";
-import Home from "./components/home/Home";
-import Login from "./components/loggedOut/Login";
+import Home from "../home/Home";
+import Login from "../loggedOut/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./components/css/Common.css";
+import "../css/Common.css";
 
 function setToken(userToken) {
   sessionStorage.setItem("token", JSON.stringify(userToken));
