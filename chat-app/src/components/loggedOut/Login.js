@@ -34,7 +34,7 @@ export default function Login({ setToken }) {
 
     return (
         <Container className="loggedOutDiv pb-4 px-3">
-            <h1>Log in</h1>
+            <h2>Log in</h2>
             <Form className="pt-4" onSubmit={handleSubmit}>
                 <Form.Group className="pb-3" controlId="formUsername">
                     <InputGroup>

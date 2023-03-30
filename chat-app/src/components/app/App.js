@@ -6,6 +6,7 @@ import {
   } from "react-router-dom";
 import Home from "../home/Home";
 import Login from "../loggedOut/Login";
+import Registration from "../loggedOut/Registration";
 import useToken from "./useToken";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Common.css";
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/registration" element={<Registration />} />
         </Routes>
       </BrowserRouter>
     </div>
