@@ -6,7 +6,6 @@ import {
 } from "react-bootstrap";
 
 function Register() {
-
     return (
         <div>
             <Form className="pt-4">
