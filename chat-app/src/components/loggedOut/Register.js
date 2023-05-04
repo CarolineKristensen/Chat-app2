@@ -18,14 +18,6 @@ function Register() {
                         <Form.Control type="text" placeholder="Username" required/>
                     </InputGroup>
                 </Form.Group>
-                <Form.Group className="pb-3" controlId="formUsername">
-                    <InputGroup>
-                        <InputGroup.Text>
-                            <img id="emailIcon" src="../images/envelope-fill.svg" alt="Email icon" width="15px" />
-                        </InputGroup.Text>
-                        <Form.Control type="email" placeholder="Email" required/>
-                    </InputGroup>
-                </Form.Group>
                 <Form.Group className="pb-3" controlId="formPassword">
                     <InputGroup>
                         <InputGroup.Text>

@@ -1,7 +1,7 @@
 /* General LoggedOut styling */
 .loggedOutDiv {
     height: 100%;
-    width: 550px;
+    width: 550px !important;
 }
 
 .nav-tabs > .nav-item > button {
