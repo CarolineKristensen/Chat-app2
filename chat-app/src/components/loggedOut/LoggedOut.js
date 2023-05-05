@@ -8,9 +8,9 @@ import {
 import Login from "./Login";
 import Register from "./Register";
 
-function LoggedOutPage() {
+function LoggedOut(props) {
     const [key, setKey] = useState("login");
-
+    
     return (
         <Container className="loggedOutDiv pb-4 px-3">
             {key === "login" ? (
@@ -20,7 +20,7 @@ function LoggedOutPage() {
             )}
             <Tabs defaultActiveKey="login" id="loginRegister" activeKey={key} onSelect={(k) => setKey(k)} justify>
                 <Tab className="loginDiv" eventKey="login" title="Log in">
-                    <Login />
+                    <Login onLogin={props.onLogin} />
                 </Tab>
                 <Tab className="registerDiv" eventKey="register" title="Register">
                     <Register />
@@ -30,4 +30,4 @@ function LoggedOutPage() {
     )
 }
 
-export default LoggedOutPage;
+export default LoggedOut;

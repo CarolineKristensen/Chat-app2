@@ -6,23 +6,43 @@ import {
 } from "react-bootstrap";
 import "../css/LoggedOut.css";
 
-function Login() {
+function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleSubmit = async (e) => {
-        alert(username + " " + password);
+    // A simple user database
+    const users = [
+        {username: "feliciabergflo", password: "test123"},
+        {username: "carolinekristensen", password: "test123"}
+    ];
+
+    function handleLogin(e) {
+        e.preventDefault();
+
+        // Check if the entered username and password match 
+        // a user in the database
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            // user authenticated, sets isLoggedIn state      
+            setIsLoggedIn(true);
+            props.onLogin(true);
+        } else {
+            setErrorMessage("Invalid username or password");
+        }
     }
 
     return (
         <div>
-            <Form className="pt-4" onSubmit={handleSubmit}>
+            <Form className="pt-4" onSubmit={handleLogin}>
                 <Form.Group className="pb-3" controlId="formUsername">
                     <InputGroup>
                         <InputGroup.Text>
                             <img id="usernameIcon" src="../images/person-fill.svg" alt="Username icon" width="20px" />
                         </InputGroup.Text>
-                        <Form.Control type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required/>
+                        <Form.Control type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
                 <Form.Group className="pb-3" controlId="formPassword">
@@ -30,7 +50,7 @@ function Login() {
                         <InputGroup.Text>
                             <img id="passwordIcon" src="../images/key-fill.svg" alt="Password icon" width="20px" />
                         </InputGroup.Text>
-                        <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
+                        <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
                 <p id="forgotPwd">
@@ -41,6 +61,8 @@ function Login() {
                         Log in
                     </Button>
                 </div>
+                <br />
+                {errorMessage && <div>{errorMessage}</div>}
             </Form>
         </div>
     )
