@@ -6,12 +6,19 @@ import {
 } from "react-bootstrap";
 import "../css/LoggedOut.css";
 
-function Login() {
+function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleSubmit = async (e) => {
         alert(username + " " + password);
+        handleLogin();
+    }
+
+    function handleLogin() {
+        setIsLoggedIn(true);
+        props.onLogin(true);
     }
 
     return (
