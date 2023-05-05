@@ -1,10 +1,8 @@
 import React from "react";
 
-function HomePage(){
+function Home() {
     return (
-        
-            <h1>Välkommen in, du är nu inloggad!!</h1>
-
+        <h1>Välkommen in, du är nu inloggad!!</h1>
     )
 }
-export default HomePage();
+export default Home();
