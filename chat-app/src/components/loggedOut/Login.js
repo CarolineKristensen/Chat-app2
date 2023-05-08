@@ -12,18 +12,12 @@ function Login(props) {
     const [errorMessage, setErrorMessage] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // A simple user database
-    const users = [
-        {username: "feliciabergflo", password: "test123"},
-        {username: "carolinekristensen", password: "test123"}
-    ];
-
     function handleLogin(e) {
         e.preventDefault();
 
         // Check if the entered username and password match 
         // a user in the database
-        const user = users.find(user => user.username === username && user.password === password);
+        const user = props.users.find(user => user.username === username && user.password === password);
 
         if (user) {
             // user authenticated, sets isLoggedIn state      

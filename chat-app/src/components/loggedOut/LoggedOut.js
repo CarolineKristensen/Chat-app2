@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import "../css/LoggedOut.css";
 import {
     Container,
     Tab,
@@ -11,6 +10,17 @@ import Register from "./Register";
 function LoggedOut(props) {
     const [key, setKey] = useState("login");
     
+    // A simple user database
+    const [users, setUsers] = useState([
+        {username: "feliciabergflo", password: "test123"},
+        {username: "carolinekristensen", password: "test123"}
+    ]);
+
+    // Recieves a username and password as arguments
+    function handleRegister(username, password) {
+        setUsers([...users, {username, password}]); // updates the users state by adding new object
+    }
+
     return (
         <Container className="loggedOutDiv pb-4 px-3">
             {key === "login" ? (
@@ -20,10 +30,10 @@ function LoggedOut(props) {
             )}
             <Tabs defaultActiveKey="login" id="loginRegister" activeKey={key} onSelect={(k) => setKey(k)} justify>
                 <Tab className="loginDiv" eventKey="login" title="Log in">
-                    <Login onLogin={props.onLogin} />
+                    <Login onLogin={props.onLogin} users={users} />
                 </Tab>
                 <Tab className="registerDiv" eventKey="register" title="Register">
-                    <Register />
+                    <Register onRegister={handleRegister} />
                 </Tab>
             </Tabs>
         </Container>

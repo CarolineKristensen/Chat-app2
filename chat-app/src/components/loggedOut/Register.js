@@ -5,13 +5,17 @@ import {
     Button
 } from "react-bootstrap";
 
-function Register() {
+function Register(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
-    const handleSubmit = async (e) => {
-        alert(username + " " + password);
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onRegister(username, password); // Passes the new user data to the handleRegister function in LoggedOut.js
+        setSuccessMessage("Temporary user created!");
     }
+
     return (
         <div>
             <Form className="pt-4" onSubmit={handleSubmit}>
@@ -37,6 +41,8 @@ function Register() {
                         Register
                     </Button>
                 </div>
+                <br />
+                {successMessage && <div>{successMessage}</div>}
             </Form>
         </div>
     )
