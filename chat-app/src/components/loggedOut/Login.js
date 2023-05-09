@@ -47,16 +47,13 @@ function Login(props) {
                         <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
-                <p id="forgotPwd">
-                    <a href="/">Forgot your password?</a>
-                </p>
                 <div className="text-center">
-                    <Button className="loggedOutButton" variant="primary" type="submit" size="lg">
+                    <Button className="loggedOutButton" variant="secondary" type="submit" size="lg">
                         Log in
                     </Button>
                 </div>
                 <br />
-                {errorMessage && <div>{errorMessage}</div>}
+                {errorMessage && <div className="message error">{errorMessage}</div>}
             </Form>
         </div>
     )

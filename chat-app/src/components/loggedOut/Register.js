@@ -35,14 +35,14 @@ function Register(props) {
                         <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
                     </InputGroup>
                 </Form.Group>
-                <Form.Check type="checkbox" id="registerConsent" label="I consent..." />
+                <Form.Check type="checkbox" id="registerConsent" label="I consent..." required />
                 <div className="text-center">
-                    <Button className="loggedOutButton" variant="primary" type="submit" size="lg">
+                    <Button className="loggedOutButton" variant="secondary" type="submit" size="lg">
                         Register
                     </Button>
                 </div>
                 <br />
-                {successMessage && <div>{successMessage}</div>}
+                {successMessage && <div className="message success">{successMessage}</div>}
             </Form>
         </div>
     )

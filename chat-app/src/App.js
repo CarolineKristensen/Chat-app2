@@ -9,7 +9,6 @@ function App() {
 
   function handleLogin(isLoggedIn) {
     setIsLoggedIn(isLoggedIn);
-    alert(isLoggedIn);
   }
 
   return (

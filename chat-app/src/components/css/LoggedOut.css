@@ -12,7 +12,7 @@
 /* Button styling */
 .loggedOutButton {
     border: none;
-    background-color: white;
+    background-color: #7439db !important;
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -40,12 +40,25 @@
     border-radius: 10px;
 }
 
-#forgotPwd {
+.form-check {
     text-align: left;
 }
 
-.form-check {
-    text-align: left;
+.message {
+    padding: 10px;
+    /*margin: 10px;*/
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.success {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.error {
+    background-color: #f44336;
+    color: #fff;
 }
 
 /* Login 
